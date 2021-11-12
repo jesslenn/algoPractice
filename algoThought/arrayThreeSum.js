@@ -9,8 +9,11 @@
 //initialize a for loop
 //we will have three pointers-- [i], [i+1], [arr.length-1]
 
+//hello world
+function arrayThreeSum (array, sum) {
 
+}
 
-// arrayThreeSum([12, 3, 1, 2, -6, 5, -8, 6], 0)
+arrayThreeSum([12, 3, 1, 2, -6, 5, -8, 6], 0)
 // arrayThreeSum([5, 6 , 1, -9 , 7, 3 , 2], 35)
 // arrayThreeSum([1, 15, -5, 12 , -3, 6 , 2], 10)
