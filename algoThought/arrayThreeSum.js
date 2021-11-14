@@ -24,7 +24,28 @@ function arrayThreeSum (arr, targetSum) {
     //element    leftIndex                 rightIndex
     //[1,        3,         5, 6, 8, 11,    97]
     let rightIndex = arr.length-1;
+    //while our inside pointers do not yet overlap
+    while (leftIndex < rightIndex) {
+      //what's the current sum of all our pointers?
+      let currentSum = element + arr[leftIndex] + arr[rightIndex]
+      //if our current sum is the input sum we're looking for
+      if (currentSum === targetSum){
+        //push all current integers into our solution array
+        solution.push([element, arr[leftIndex], arr[rightIndex]]);
+        //move each inside pointers toward each other
+        leftIndex++
+        rightIndex--
+      } else if (currentSum > targetSum) {
+        //if our current pointer position has given us a sum that's too large, we'll move the right pointer down to lower integers
+        rightIndex--;
+      } else if (currentSum < targetSum){
+        //if our current position gives us a sum that's too small, we'll move the left pointer up to larger integers.
+        leftIndex++;
+      }
+    }
   }
+  //if we didn't find any, we just return that empty array we initialized!
+  return solution;
 }
 
 //MEMO:
