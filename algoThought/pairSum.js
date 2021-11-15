@@ -10,6 +10,10 @@
 // pairSum([1, 2, 3, 4, 5], 2) -> false
 // Examples - Edge cases
 
+//MEMO:
+function pairSum(arr, sum) {
+  const memo = {};
+}
 // pairSum([1], 2) -> false
 // pairSum([2], 2) -> false
 // pairSum([], 1) -> false
