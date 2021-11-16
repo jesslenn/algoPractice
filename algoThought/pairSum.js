@@ -13,6 +13,34 @@
 //MEMO:
 function pairSum(arr, sum) {
   const memo = {};
+
+  for (let num of arr) {
+    //if we've seen the remainder of the sum before, then we know a pair exists!
+    if (memo[sum-num]) {
+      return true;
+    } else {
+      memo[num] = true;
+    }
+  }
+  return false;
+}
+
+//Using Set Class in JS:
+function pairSum(arr, sum) {
+  //initializes a new set
+  //in JS a Set is a class/data structure that only stores unique values
+  //Note: sets will NOT be useful for algo problems which require counting multiples (i.e. a letter counting problem)
+  const set = new Set();
+
+  //this has the EXACT SAME logic as memo--we're just using a different storage tool
+  for (let num of arr) {
+    if (set.has(sum - num)) {
+      return true;
+    } else {
+      set.add(num)
+    }
+  }
+  return false;
 }
 // pairSum([1], 2) -> false
 // pairSum([2], 2) -> false
