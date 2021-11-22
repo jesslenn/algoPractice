@@ -8,6 +8,7 @@
 // headTwo = 1 -> 3 -> 4 -> 5 -> 9 -> 10 // the head node with value 1
 // mergeLinkedLists(headOne, headTwo) = 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 // the new head node with value 1
 
+//O(n+m) time complexity, O(1) space complexity
 function mergeTwoLists (headOne, headTwo) {
    //if either of the heads of our linked lists are empty
   if (headOne === null || headTwo === null)
@@ -41,4 +42,27 @@ function mergeTwoLists (headOne, headTwo) {
   p1.next = p2;
   //we return the original p1--now the head of our list
   return head;
+}
+
+//O(n+m) time complexity, O(n+m) space complexity
+function mergeLinkedLists (headOne, headTwo) {
+  recursiveMerge(headOne, headTwo, null);
+  return headOne.value < headTwo.value ? headOne : headTwo;
+}
+
+function recursiveMerge (p1, p2, p1Prev) {
+  if (p1 === null) {
+    p1Prev.next = p2;
+    return;
+  }
+  if (p2 === null) return;
+
+  if (p1.value < p2.value) {
+    recursiveMerge(p1.next, p2, p1);
+  } else {
+    if (p1Prev !== null) p1Prev.next = p2;
+    const newP2 = p2.next;
+    p2.next = p1;
+    recursiveMerge(p1, newP2, p2);
+  }
 }
