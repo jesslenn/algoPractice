@@ -45,6 +45,29 @@ function mergeTwoLists (headOne, headTwo) {
 }
 
 //O(n+m) time complexity, O(n+m) space complexity
+function mergeLists (headOne, headTwo) {
+  //if either LL is null
+  if (headOne === null || headTwo === null) {
+    //we just return the list that exists
+    return headOne === null ? headTwo : headOne;
+  }
+  //assign p1 to whichever head's value is smaller
+  let p1 = headOne.value <= headTwo.value ? headOne : headTwo;
+  //assign p2 to whichever head's value is bigger (or in this logic, the head that we DIDN'T assign to p1)
+  let p2 = p1 === headOne ? headTwo : headOne;
+  //store the smallest value in the variable "head"
+  const head = p1;
+
+  //we assign the next node after "head" to the product of running our function again on p1.next and p2
+  //we now can see that line 73 is our base case--once we've rearranged both LL's we'll wind up with one re-ordered linked list and... nothing.  So we'll return the one we reordered
+  //our recursion works because as we call each successive set of nodes we will put them in order and then once there's nothing left to sort, we'll return those nodes back in order
+  head.next = mergeLists(p1.next, p2)
+
+  return head;
+}
+
+//O(n+m) time complexity, O(n+m) space complexity
+//BLEH.  Not going to bother annotating this one.  The one down above has the same time and space complexity, is also recursive, and is elegant and easy to read.  Boooo to this helper function!
 function mergeLinkedLists (headOne, headTwo) {
   recursiveMerge(headOne, headTwo, null);
   return headOne.value < headTwo.value ? headOne : headTwo;
