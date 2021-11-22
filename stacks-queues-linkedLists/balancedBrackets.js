@@ -90,3 +90,31 @@ function hasBalancedBrackets (str) {
   //at the end we return the boolean evaluation of opensStack.length === 0
   return opensStack.length === 0;
 }
+
+//a similarly optimized solution which looks a little more like our first solution:
+//regex that will select ONLY the brackets we want to search for in our input string
+const bracketPattern = /[[\](){}]/g;
+//keeps track of possible bracket pairings
+const bracketPairs = {
+  '[' : ']',
+  '{' : '}',
+  '(' : ')'
+};
+
+const hasBalancedBrackets = str => {
+//we initialize an empty array to store our unmatched brackets
+const bracketStack = [];
+//we extricate the parts of the string which are brackets
+str = str.match(bracketPattern);
+//we loop through our bracket string
+for(let i = 0; i < str.length; i++){
+  //if the current index has a match in bracketPairs, then we add that index to the frong of our bracketStack array
+  if(str[i] in bracketPairs) bracketStack.unshift(str[i]);
+  //if the opposite bracket of the first index of our storing array is equal to the current character then we REMOVE it from the bracketStack array
+  else if (bracketPairs[bracketStack[0]] === str[i]) bracketStack.shift();
+  //if we haven't found a matched pair then it must be an unmatched pair and we return false
+  else return false;
+}
+//at the end we return the boolean evaluation of !bracketStack.length (hint: if bracketStack is empty, we'll be returning true)
+return !bracketStack.length;
+};
