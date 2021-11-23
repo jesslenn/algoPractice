@@ -56,3 +56,49 @@ function mergeNLists (lists) {
   //mergedList.next should actually be the first value in the sorted list, so we return that!
   return mergedList.next;
 }
+//that solution was ugly and I feel dirty for typing it.  Two for loops, a while loop, and a sort(), which is basically another loop under the hood. YUCK.
+
+//DIVIDE AND CONQUER
+//O(n log n) Time complexity; O(1) space complexity
+//if you can't visualize it, the slide deck below does an excellent job!
+//https://docs.google.com/presentation/d/1cPXje2N0VJPYj8r_RA0zBHivbTS6lL0xpRXD-ttRlFI/edit?usp=sharing
+
+//again, this helper function just lets us create a new node with a specified value
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+}
+
+function merge2Lists (list1, list2) {
+  let mergedList = new ListNode(0);
+
+  let curr = mergedList;
+  while (list1 !== null && list2 !== null) {
+    if (list1 <= list2.val) {
+      curr.next = list1;
+      list1 = list1.next;
+    } else {
+      curr.next = list2;
+      list2 = list2.next;
+    }
+    curr = curr.next;
+  }
+  curr.next = list1 !== null ? list1 : list2;
+  return mergedList.next
+}
+
+function mergeNList (lists) {
+  if (lists.length === 0) {
+    return null;
+  }
+  let interval = 1;
+  while (lists.length > interval) {
+    let indx = 0;
+    while (idx + interval < lists.length) {
+      lists[idx] = merge2Lists(lists[idx], lists[idx + interval]);
+      idx += interval * 2;
+    }
+    interval *= 2;
+  }
+  return lists[0];
+}
