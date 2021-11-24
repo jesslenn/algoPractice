@@ -70,10 +70,14 @@ function ListNode(val) {
 }
 
 function merge2Lists (list1, list2) {
+  //we create a new list node
   let mergedList = new ListNode(0);
 
+  //we initialize "curr" as that new list node
   let curr = mergedList;
+  //do we have a list1 and a list2?
   while (list1 !== null && list2 !== null) {
+    //if the 
     if (list1 <= list2.val) {
       curr.next = list1;
       list1 = list1.next;
