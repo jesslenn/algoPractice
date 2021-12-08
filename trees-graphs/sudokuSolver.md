@@ -1,4 +1,3 @@
-##Sudoku Solver
 
 [Updates Slides](https://slides.com/pat310/reacto-3-8/)
 
