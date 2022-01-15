@@ -9,9 +9,13 @@ class LinkedList {
 }
 
 function shiftLinkedList(head, k) {
-  // Write your code here.
+  
 }
 
-// Do not edit the lines below.
-exports.LinkedList = LinkedList;
-exports.shiftLinkedList = shiftLinkedList;
+//Steps to get to the mutated linked list:
+//0 > 1 > 2 > 3 > 4 > 5
+//4 > 5 > 0 > 1 > 2 > 3
+//Old tail has to be pointed at the old head
+//New head needs to be reassigned
+//New tail needs to be reassigned to null
+//We only care about four nodes--the old head and tail and the new head and tail.
