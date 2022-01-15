@@ -2,3 +2,42 @@
 #Python
 
 def shiftLinkedList(head, k):
+  #we can't overwrite the head because we'll need that value later!
+  listTail = head
+  #we need to store the length of our LL
+  listLength = 1
+  #we traverse the LL until we get to the original tail (which will be None)
+  while listTail is not None:
+    #we reassign the new tail as we go
+    listTail = listTail.next
+    #we keep track of how long the list is
+    listLength += 1
+  
+  #calculate our offset from beginning or end of LL
+  #this handles if our k is negative or a number larger than the length of the LL
+  #Python is cool with handling the absolute of negative numbers!
+  offset = abs(k) % listLength
+  # we handle if there isn't any shifting that needs to happen
+  if offset == 0:
+    return head
+
+#having found the absolute number of our offset, we reassign the new tail and check in our conditional if k was negative and assign the new tail accordingly
+#Note for myself on Python syntax: 
+# if (k > 0){
+#   listLength - offset} 
+# else {
+#   offset}
+  newTailPosition = listLength - offset if k > 0 else offset
+  newTail = head
+  #here we just traverse over our list ressigning the newTail until we've traversed the entire length of the LL
+  for i in range(1, newTailPosition):
+    newTail = newTail.next
+  #we now have all four values we need! head, listTail, newTail, and newHead
+  newHead = newTail.next
+  #we assign our newTail the next value of none, because it's the fail
+  newTail.next = None
+  #we make sure we're connecting the old tail to the old head so they connect
+  listTail.next = head
+  #we return our complete linked list!
+  return newHead
+#O(n) time | O(1) space
