@@ -20,7 +20,7 @@ tree =        1
 Output: [15, 16, 18, 10, 11]
 ```
 
-Hint: it's been a while since we reviewed Binary Trees--take a moment to review depth-first-search with your partner!
+**Hint:** it's been a while since we reviewed Binary Trees--take a moment to go over depth-first-search with your partner!
 
 <h2>Solution:</h2>
 
