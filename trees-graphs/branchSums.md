@@ -20,6 +20,7 @@ tree =        1
 Output: [15, 16, 18, 10, 11]
 ```
 
+Hint: it's been a while since we reviewed Binary Trees--take a moment to review depth-first-search with your partner!
 
 <h2>Solution:</h2>
 
@@ -76,4 +77,4 @@ O(n) time | O(n) space ("n" being the number of nodes in the Binary Tree)
 
 <h3>Source:</h3>
 
-[AlgoExpert:]<https://www.algoexpert.io/questions/Branch%20Sums>
+AlgoExpert: <https://www.algoexpert.io/questions/Branch%20Sums>
