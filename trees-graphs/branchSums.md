@@ -1,6 +1,6 @@
-#Branch Sums
+<h1>Branch Sums</h1>
 
-###Prompt:
+<h2>Prompt:</h2>
 
 Write a function that takes in a Binary Tree and returns a list of it's branch sums ordered from leftmost branch sum to rightmost branch sum.  A branch sum is the sum of all values in a Binary Tree branch.  A Binary Tree branch is a path of nodes in a tree that starts at the root node and ends at any leaf node.
 
