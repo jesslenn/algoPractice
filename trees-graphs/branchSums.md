@@ -76,4 +76,4 @@ O(n) time | O(n) space ("n" being the number of nodes in the Binary Tree)
 
 <h3>Source:</h3>
 
-[AlgoExpert:](https://www.algoexpert.io/questions/Branch%20Sums)
+[AlgoExpert:]<https://www.algoexpert.io/questions/Branch%20Sums>
