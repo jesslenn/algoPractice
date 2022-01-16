@@ -6,7 +6,7 @@ Write a function that takes in a Binary Tree and returns a list of it's branch s
 
 Each BinaryTree node has a value, left child node, and right child node.
 
-##Example:
+<h2>Example:</h2>
 
 ```javascript
 tree =        1
@@ -21,7 +21,7 @@ Output: [15, 16, 18, 10, 11]
 ```
 
 
-##Solution:
+<h2>Solution:</h2>
 
 Without helper function:
 ```javascript
@@ -70,10 +70,10 @@ function calculateBranchSums(root, sum, solutions){
 	}
 	
 ```
-###Time Complexity:
+<h3>Time Complexity:</h3>
 
 O(n) time | O(n) space ("n" being the number of nodes in the Binary Tree)
 
-###Source:
+<h3>Source:</h3>
 
 [AlgoExpert:](https://www.algoexpert.io/questions/Branch%20Sums)
