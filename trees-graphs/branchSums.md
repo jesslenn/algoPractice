@@ -8,6 +8,7 @@ Each BinaryTree node has a value, left child node, and right child node.
 
 ##Example:
 
+```javascript
 tree =        1
             /   \
           2       3
@@ -17,6 +18,7 @@ tree =        1
     8   9  10
 
 Output: [15, 16, 18, 10, 11]
+```
 
 
 ##Solution:
