@@ -43,6 +43,12 @@ function branchSums(root, sum = 0, solutions = []) {
 		return;
 	}
 
+  branchSums(root.left, sum, solutions);
+	branchSums(root.right, sum, solutions);
+	
+	return solutions;
+}
+
 ```
 
 With helper function:
