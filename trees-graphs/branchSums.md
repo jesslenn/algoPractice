@@ -77,6 +77,23 @@ function calculateBranchSums(root, sum, solutions){
 	}
 	
 ```
+Alternate solution (Credit to Margaret):
+```javascript
+function branchSums(root, sum = 0, list = []) {
+  // Write your code here.
+	
+	if (!root) return;
+	sum += root.value;
+	if (root.left) branchSums(root.left, sum, list)
+	if (root.right) branchSums(root.right, sum, list)
+
+	if(!root.left && !root.right) {
+		list.push(sum);
+	}
+	return list;
+}
+```
+
 <h3>Time Complexity:</h3>
 
 O(n) time | O(n) space ("n" being the number of nodes in the Binary Tree)
