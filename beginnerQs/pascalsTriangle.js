@@ -2,9 +2,9 @@
  *             1 
  *            1 1 
  *           1 2 1 
- *          1 3 3 1
- *         1 4 6 4 1
- *        1 5 10105 1
+ *          1 3 3 1 
+ *         1 4 6 4 1 
+ *        1 5 10105 1 
  */
 
 //output: the amount of rows in Pascal's Triangle indicated by input

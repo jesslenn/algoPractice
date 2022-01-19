@@ -52,6 +52,25 @@ function attendanceCheck(day){
     //individual student object
     let eachStudent = classRoom[i];
     //we have to get the key of our pair for the student obj
+      //why [0]?  GeeksForGeeks:
+      //The Object.keys() method is used to return an array whose elements are strings corresponding to the enumerable properties found directly upon an object. 
+      //Me : you might RUN Object.keys() on an object, but that's an array you're returning!
     let studentName = Object.keys(eachStudent)[0]
+    //now we can get our single value--the array of attendance objects
+    let attendanceObj = eachStudent[studentName]
+    //NOW we have our array for that particular student and we can loop through the objects for each day!
+    for (let j = 0; j <attendanceObj.length; j++){
+      //we take the object for each single day
+      let singleDay = attendanceObj[j];
+      //we have to retrieve our specific week day
+      let dayName = Object.keys(singleDay)[0]
+      //if our specific day is the input day AND it's value is true
+      if (dayName === day && singleDay[dayName]){
+        //we push that sudent into our array
+        presentStudents.push(studentName)
+      }
+    }
   }
+  //once all of our loops have run, we return our array!
+  return presentStudents;
 }
