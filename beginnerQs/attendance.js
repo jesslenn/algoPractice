@@ -50,6 +50,8 @@ function attendanceCheck(day){
   //we are looping through each student--so every i comes back with an object containing an array of objects
   for (let i = 0; i < classRoom.length; i++){
     //individual student object
-    let eachStudent = classRoom[i]
+    let eachStudent = classRoom[i];
+    //we have to get the key of our pair for the student obj
+    let studentName = Object.keys(eachStudent)[0]
   }
 }
