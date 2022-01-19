@@ -7,7 +7,7 @@
  *        1 5 10105 1
  */
 
-//output: first ten rows of Pascal's Triangle
+//output: the amount of rows in Pascal's Triangle indicated by input
 //no storage needed, just needs to print
 
 function pascalsReturn (maxLevel) {
