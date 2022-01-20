@@ -60,16 +60,24 @@ test their function with these test variables
 //isValidBST takes root node
 var isValidBST = function(root) {
     //we make a helper function to handle the recursion
-    //it will take each node on each layer
+    //it will take each node on each layer and keep track of the min and max of each layer
     function helper(node, min, max){
+      //once we can't find a node, we've reached the leaves of the tree without triggering false, so we return true
         if(!node) return true;
-        
+        //if the node we're checking, doesn't meet the standard for a BST, return false
+        //i.e. if the value to the left is greater or the value to right is less
         if(node.val <= min || node.val >= max) return false;
-        
+        //we make our recursive calls to the left first so that we have an inorder traversal
+        //our last param resets our max to the current node value
         let left = helper(node.left, min, node.val)
+        //when we can no longer find left branches, we can traverse right
+        //last param to right initializes min at current node value
         let right = helper(node.right, node.val, max)
-        
+        //we continue returning our recursive calls
         return left && right
     }
+    //our first helper call initializes min at -Infinity and max at Infinity to start our bounds as far away as possible.
         return helper(root, -Infinity, Infinity)
 }
+
+isValidBST(test3)
