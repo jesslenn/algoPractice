@@ -15,3 +15,18 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
+
+function mostProfit(pricesArr) {
+  let mostProfit = 0;
+  let min = Infinity;
+  for (let i = 0; i < pricesArr.length; i++) {
+    if (pricesArr[i] < min){
+      min = pricesArr[i]
+    }
+    let profit = pricesArr[i] - min;
+    if (profit > mostProfit) {
+      mostProfit = profit
+    }
+  }
+  return mostProfit;
+}
